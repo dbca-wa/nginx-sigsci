@@ -21,3 +21,8 @@ Start an interactive local session:
 docker container run -it --rm --entrypoint /bin/sh ghcr.io/dbca-wa/nginx-sigsci
 sigsci-agent --help
 ```
+
+## Upgrading
+
+- Edit `Dockerfile` (typically the lines `FROM nginx:1.*` and the `RUN apt-get -y install nginx-module-fastly-nxs=<VERSION>`).
+- Test build the image: `docker image build --tag ghcr.io/dbca-wa/nginx-sigsci .`
