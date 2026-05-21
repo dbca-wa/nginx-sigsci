@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM nginx:1.30.1
+FROM nginx:1.31.0
 
 # Image metadata
 LABEL org.opencontainers.image.title="nginx-sigsci" \
