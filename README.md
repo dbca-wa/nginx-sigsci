@@ -3,6 +3,7 @@
 This project comprises a Dockerfile consisting of Nginx with the `nginx-module-fastly-nxs` module installed,
 plus the Signal Sciences Next-Gen WAF agent.
 It is intended to be run in the DBCA environment with additional configuration, such as `/var/nginx-etc/sigsci/agent.conf`.
+The official Nginx Docker image runs Debian as the base OS (`root` user). Updates to the Dockerfile should reflect this.
 
 References:
 
