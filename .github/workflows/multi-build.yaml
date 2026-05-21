@@ -218,12 +218,10 @@ jobs:
           # latest → default branch (main)
           # dev → dev branch
           # Semantic versions from Git tags (v1.2.3)
-          # Always add commit SHA
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
             type=raw,value=dev,event=branch,branch=dev
             type=semver,pattern={{version}}
-            type=sha
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
