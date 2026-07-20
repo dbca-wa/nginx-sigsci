@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM nginx:1.30.1
+FROM nginx:1.30.3
 
 # Image metadata
 LABEL org.opencontainers.image.title="nginx-sigsci" \
@@ -24,5 +24,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Install the agent package and the Nginx module for the stable release of Nginx.
 # https://docs.fastly.com/en/ngwaf/installing-the-nginx-dynamic-module#installing-the-nginx-dynamic-module-for-nginx-open-source
-RUN apt-get -y install sigsci-agent nginx-module-fastly-nxs=1.30.1\* \
+RUN apt-get -y install sigsci-agent nginx-module-fastly-nxs=1.30.3\* \
   && rm -rf /var/lib/apt/lists
