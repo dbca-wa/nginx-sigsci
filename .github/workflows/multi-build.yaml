@@ -74,5 +74,5 @@ jobs:
           TAGS: ${{ steps.meta.outputs.tags }}
         run: |
           set -euo pipefail
-          docker buildx bake --push \
-            --set "app.tags=$(printf '%s\n' "$TAGS" | awk 'NF' | paste -sd, -)"
+          TAGS_JSON=$(printf '%s\n' "$TAGS" | awk 'NF' | jq -R . | jq -s .)
+          docker buildx bake --push --set "app.tags=$TAGS_JSON"
