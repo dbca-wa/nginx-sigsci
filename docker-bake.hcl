@@ -25,4 +25,8 @@ target "app" {
   dockerfile = "Dockerfile"
   tags       = ["${REGISTRY}/nginx-sigsci:${TAG}"]
   platforms  = split(",", PLATFORMS)
+  cache-from = ["type=gha"]
+  cache-to   = ["type=gha,mode=max"]
+  # Provenance + SBOM are attached on push (CI). Harmless for local non-push builds.
+  attest     = ["type=provenance,mode=max", "type=sbom"]
 }
