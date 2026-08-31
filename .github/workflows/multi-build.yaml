@@ -74,5 +74,6 @@ jobs:
           TAGS: ${{ steps.meta.outputs.tags }}
         run: |
           set -euo pipefail
-          TAGS_JSON=$(printf '%s\n' "$TAGS" | awk 'NF' | jq -R . | jq -s .)
-          docker buildx bake --push --set "app.tags=$TAGS_JSON"
+          TAGS_JSON=$(printf '%s\n' "$TAGS" | awk 'NF' | jq -R . | jq -s -c .)
+          printf 'target "app" {\n  tags = %s\n}\n' "$TAGS_JSON" > /tmp/bake-tags.hcl
+          docker buildx bake --push -f docker-bake.hcl -f /tmp/bake-tags.hcl
