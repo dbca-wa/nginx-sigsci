@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 # Args to centralise versions.
 ARG NGINX_VERSION=1.30.4
-ARG NGINX_DIGEST=sha256:5cf90903deda2c5981b8ad05e7617ac010e389f0dde0ac83487c02c509281de6
+ARG NGINX_DIGEST=sha256:09cc2702709e6388d979d8030e3ab4eb1ceb699b2dced26d7543e872a822e823
 ARG SIGSCI_AGENT_VERSION=4.80.1
 FROM nginx:${NGINX_VERSION}@${NGINX_DIGEST}
 # Arg scope: re-declare bare args inside the build stage.
