@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 # Args to centralise versions.
-ARG NGINX_VERSION=1.30.6
-ARG NGINX_DIGEST=sha256:a7675fcee220f59b4a99f7098c06a0d5d999c2c0ee37c0211efb780536e5cb20
+ARG NGINX_VERSION=1.30.7
+ARG NGINX_DIGEST=sha256:8a7280c664b1a205092ffea6443299e6d307fe65b6f946b02028fa311c29fd01
 ARG WAF_AGENT_VERSION=4.83.1
 FROM nginx:${NGINX_VERSION}-trixie@${NGINX_DIGEST}
 # Arg scope: re-declare bare args inside the build stage.
