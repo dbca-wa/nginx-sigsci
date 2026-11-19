@@ -13,17 +13,17 @@ References:
 Build an image for testing:
 
 ```bash
-docker image build --tag ghcr.io/dbca-wa/nginx-sigsci .
+docker buildx bake local
 ```
 
 Start an interactive local session:
 
 ```bash
-docker container run -it --rm --entrypoint /bin/sh ghcr.io/dbca-wa/nginx-sigsci
+docker container run -it --rm --entrypoint /bin/sh ghcr.io/dbca-wa/nginx-sigsci:dev
 sigsci-agent --version
 ```
 
 ## Upgrading
 
 - Edit `Dockerfile` (typically the just the `ARGS` values).
-- Test build the image: `docker image build --tag ghcr.io/dbca-wa/nginx-sigsci .`
+- Test build the image: `docker buildx bake local` (builds `ghcr.io/dbca-wa/nginx-sigsci:dev`).

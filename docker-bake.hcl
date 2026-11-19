@@ -62,4 +62,6 @@ target "app" {
 target "ci" {
   inherits   = ["app"]
   pull       = true
+  cache-from = ["type=gha"]
+  cache-to   = ["type=gha,mode=max"]
 }
