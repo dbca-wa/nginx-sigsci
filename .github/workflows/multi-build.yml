@@ -85,5 +85,5 @@ jobs:
           files: docker-bake.hcl
           push: true
           set: |
-            app.tags=${{ env.GHCR_IMAGE }}:latest
-            ${{ steps.image_tag.outputs.has_version_tag == 'true' && format('app.tags={0}:{1}', env.GHCR_IMAGE, steps.image_tag.outputs.value) || '' }}
+            ci.tags=${{ env.GHCR_IMAGE }}:latest
+            ${{ steps.image_tag.outputs.has_version_tag == 'true' && format('ci.tags+={0}:{1}', env.GHCR_IMAGE, steps.image_tag.outputs.value) || '' }}
